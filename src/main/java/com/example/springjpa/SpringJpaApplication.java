@@ -1,6 +1,7 @@
 package com.example.springjpa;
 
 import com.example.springjpa.controller.CrudController;
+import com.example.springjpa.controller.QueryController;
 import com.example.springjpa.entity.User;
 import com.example.springjpa.repository.UserCrudRepository;
 import org.apache.catalina.core.ApplicationContext;
@@ -21,23 +22,10 @@ public class SpringJpaApplication {
 
 		ConfigurableApplicationContext context =  SpringApplication.run(SpringJpaApplication.class, args);
 
-		CrudController controller = context.getBean(CrudController.class);
-		controller.findAllUsers();
+		//CrudController controller = context.getBean(CrudController.class);
+		QueryController controller = context.getBean(QueryController.class);
 
-		//finding by name
-		/*System.out.println("Finding by Name");
-		List<User> users = controller.findByName("Gerard");
-		users.forEach(System.out::println);*/
-
-		//finding by status
-		/*System.out.println("Finding by Status");
-		List<User> users = controller.findByStatus("Software Engineer");
-		users.forEach(System.out::println);*/
-
-		//finding by city and status
-		System.out.println("Finding by City and Status");
-		List<User> users = controller.findByCityAndStatus("Gurgaon","Software Engineer");
-		users.forEach(System.out::println);
+		controller.run();
 	}
 
 }

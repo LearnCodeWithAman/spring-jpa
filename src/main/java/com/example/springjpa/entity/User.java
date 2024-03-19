@@ -24,4 +24,6 @@ public class User {
     private String city;
 
     private String status;
+
+    private long salary;
 }

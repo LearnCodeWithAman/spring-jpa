@@ -14,12 +14,39 @@ public class CrudController {
     @Autowired
     UserCrudRepository userCrudRepo;
 
+    public void run(){
+
+        findAllUsers();
+
+        //inserting an element
+        /*System.out.println("Inserting a user *********");
+        User user1 = new User();
+        user1.setName("Mathur");
+        user1.setCity("Gurgaon");
+        user1.setStatus("Manager");
+        user1.setSalary(170000);
+        //user.setId(5);
+        User user = insertUser(user1);*/
+
+        //finding by name
+		/*System.out.println("Finding by Name");
+		List<User> users = findByName("Gerard");
+		users.forEach(System.out::println);*/
+
+        //finding by status
+		/*System.out.println("Finding by Status");
+		List<User> users = findByStatus("Software Engineer");
+		users.forEach(System.out::println);*/
+
+        //finding by city and status
+		System.out.println("Finding by City and Status");
+		List<User> users = findByCityAndStatus("Gurgaon","Software Engineer");
+		users.forEach(System.out::println);
+    }
+
     public User insertUser(User user1) {
-        user1.setName("Mohini Gupta");
-		user1.setCity("Lalganj");
-		user1.setStatus("Business Analyst");
-		//user1.setId(5);
-		User user  = userCrudRepo.save(user1);
+
+        User user  = userCrudRepo.save(user1);
 		return user;
     }
 
